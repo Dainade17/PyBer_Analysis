@@ -7,75 +7,79 @@ The purpose of this analysis was to find the generated fare amounts throughout t
  - Average cost per ride increases as we go from urban to suburban followed by rural 
  - Which in return generates more money per ride for the drivers in rural cities compared to suburban as well as urban
 
-  code used for analysis-
-  total_driver = city_data_df.groupby(["type"]).sum()["driver_count"]
-  total_driver
-  type
-  Rural         78
-  Suburban     490
-  Urban       2405
-  Name: driver_count, dtype: int64
+ code used for analysis- \
+ total_driver = city_data_df.groupby(["type"]).sum()["driver_count"] \
+ total_driver 
 
-  average_fare = total_fare_amount / total_ride
-  average_fare
-    type
-  Rural       34.623440
-  Suburban    30.970128
-  Urban       24.525772
-  dtype: float64
+ type
+ Rural         78 \
+ Suburban     490 \
+ Urban       2405 \
+ Name: driver_count, dtype: int64 
+ 
 
-  average_fare_per_driver = total_fare_amount / total_driver
-  average_fare_per_driver
+ average_fare = total_fare_amount / total_ride \
+ average_fare \
+ type \
+ Rural       34.623440 \
+ Suburban    30.970128 \
+ Urban       24.525772 \
+ dtype: float64 
+ 
+
+average_fare_per_driver = total_fare_amount / total_driver \
+average_fare_per_driver \
   type
-  Rural       55.486282
-  Suburban    39.502714
-  Urban       16.571468
+  Rural       55.486282 \
+  Suburban    39.502714 \
+  Urban       16.571468 \
   dtype: float64
 
 However, we also found that the total daily trips in urban city types are much higher than compared to suburban and rural thus total generated fare amount is highest in urban then in suburban followed by rural
 
-  code used for analysis-
-  total_ride = pyber_data_df.groupby(["type"]).count()["ride_id"]
-  total_ride
-  type
-  Rural        125
-  Suburban     625
-  Urban       1625
-  Name: ride_id, dtype: int64
+  code used for analysis- \
+  total_ride = pyber_data_df.groupby(["type"]).count()["ride_id"] \
+  total_ride \
+  type \
+  Rural        125 \
+  Suburban     625 \
+  Urban       1625 \
+  Name: ride_id, dtype: int64 \
   
-  total_fare_amount = pyber_data_df.groupby(["type"]).sum()["fare"]
-  total_fare_amount
-  type
-  Rural        4327.93
-  Suburban    19356.33
-  Urban       39854.38
+  total_fare_amount = pyber_data_df.groupby(["type"]).sum()["fare"] \
+  total_fare_amount \
+  type \
+  Rural        4327.93 \
+  Suburban    19356.33 \
+  Urban       39854.38 \
   Name: fare, dtype: float64
 
 
 In deliverable 2 we further deepened our analysis by looking at daily / weekly generated fare amounts per city types, by considering 4 months of data, which aligned with our previous analysis implying even when the cost per ride was higher in suburban than urban, and highest in rural cities, urban cities were generating considerally higher amount of wealth due to higher ride counts.
 
-  code used for analysis- 
-  weeklytrip_pyber_data_df = pyber_trip_jan01_apr29.resample('W').sum()
-  weeklytrip_pyber_data_df
-  type	Rural	Suburban	Urban
-  date			
-  2019-01-06	187.92	721.60	1661.68
-  2019-01-13	67.65	1105.13	2050.43
-  2019-01-20	306.00	1218.20	1939.02
-  2019-01-27	179.69	1203.28	2129.51
-  2019-02-03	333.08	1042.79	2086.94
-  2019-02-10	115.80	974.34	2162.64
-  2019-02-17	95.82	1045.50	2235.07
-  2019-02-24	419.06	1412.74	2466.29
-  2019-03-03	175.14	858.46	2218.20
-  2019-03-10	303.94	925.27	2470.93
-  2019-03-17	163.39	906.20	2044.42
-  2019-03-24	189.76	1122.20	2368.37
-  2019-03-31	199.42	1045.06	1942.77
-  2019-04-07	501.24	1010.73	2356.70
-  2019-04-14	269.79	784.82	2390.72
-  2019-04-21	214.14	1149.27	2303.80
-  2019-04-28	191.85	1357.75	2238.29
+  code used for analysis-  \
+  weeklytrip_pyber_data_df = pyber_trip_jan01_apr29.resample('W').sum() \
+  weeklytrip_pyber_data_df \
+  type	Rural	Suburban	Urban \
+  date
+  \
+  2019-01-06	187.92	721.60	1661.68 \
+  2019-01-13	67.65	1105.13	2050.43 \
+  2019-01-20	306.00	1218.20	1939.02 \
+  2019-01-27	179.69	1203.28	2129.51 \
+  2019-02-03	333.08	1042.79	2086.94 \
+  2019-02-10	115.80	974.34	2162.64 \
+  2019-02-17	95.82	1045.50	2235.07 \
+  2019-02-24	419.06	1412.74	2466.29 \
+  2019-03-03	175.14	858.46	2218.20 \
+  2019-03-10	303.94	925.27	2470.93 \
+  2019-03-17	163.39	906.20	2044.42 \
+  2019-03-24	189.76	1122.20	2368.37 \
+  2019-03-31	199.42	1045.06	1942.77 \
+  2019-04-07	501.24	1010.73	2356.70 \
+  2019-04-14	269.79	784.82	2390.72 \
+  2019-04-21	214.14	1149.27	2303.80 \ 
+  2019-04-28	191.85	1357.75	2238.29 \
 
 3. Summary-
 - Provided the ride fare is higher as we move out of urban cities, one way to bridge the gap between the number rides taken in urban cities vs suburban or rural is to decrease the fare amounts
