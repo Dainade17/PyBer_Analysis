@@ -35,7 +35,7 @@ average_fare_per_driver \
   Urban       16.571468 \
   dtype: float64
 
-However, we also found that the total daily trips in urban city types are much higher than compared to suburban and rural thus total generated fare amount is highest in urban then in suburban followed by rural
+- However, we also found that the total daily trips in urban city types are much higher than compared to suburban and rural thus total generated fare amount is highest in urban then in suburban followed by rural
 
   code used for analysis- \
   total_ride = pyber_data_df.groupby(["type"]).count()["ride_id"] \
@@ -55,7 +55,7 @@ However, we also found that the total daily trips in urban city types are much h
   Name: fare, dtype: float64
 
 
-In deliverable 2 we further deepened our analysis by looking at daily / weekly generated fare amounts per city types, by considering 4 months of data, which aligned with our previous analysis implying even when the cost per ride was higher in suburban than urban, and highest in rural cities, urban cities were generating considerally higher amount of wealth due to higher ride counts.
+- In deliverable 2 we further deepened our analysis by looking at daily / weekly generated fare amounts per city types, by considering 4 months of data, which aligned with our previous analysis implying even when the cost per ride was higher in suburban than urban, and highest in rural cities, urban cities were generating considerally higher amount of wealth due to higher ride counts.
 
   code used for analysis-  \
   weeklytrip_pyber_data_df = pyber_trip_jan01_apr29.resample('W').sum() \
